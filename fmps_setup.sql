@@ -57,3 +57,30 @@ CREATE TABLE IF NOT EXISTS MARKET_DATA (
     Volume BIGINT NOT NULL,
     FOREIGN KEY (InstrumentID) REFERENCES FINANCIAL_INSTRUMENT(InstrumentID)
 );
+
+INSERT INTO FINANCIAL_INSTRUMENT (Name, Type, TickerSymbol, CurrentMarketPrice) VALUES
+    ('Apple', 'Stock', 'AAPL', 0.00),
+    ('Microsoft', 'Stock', 'MSFT', 0.00),
+    ('Amazon', 'Stock', 'AMZN', 0.00),
+    ('Nvidia', 'Stock', 'NVDA', 0.00),
+    ('Google', 'Stock', 'GOOGL', 0.00),
+    ('Tesla', 'Stock', 'TSLA', 0.00),
+    ('Google', 'Stock', 'GOOG', 0.00),
+    ('Berkshire Hathaway', 'Stock', 'BRK-B', 0.00),
+    ('Meta Platforms', 'Stock', 'META', 0.00),
+    ('UnitedHealth Group', 'Stock', 'UNH', 0.00),
+    ('Exxon Mobil', 'Stock', 'XOM', 0.00),
+    ('Eli Lilly and Company', 'Stock', 'LLY', 0.00),
+    ('JPMorgan Chase & Co.', 'Stock', 'JPM', 0.00),
+    ('Johnson & Johnson', 'Stock', 'JNJ', 0.00),
+    ('Visa', 'Stock', 'V', 0.00),
+    ('Procter & Gamble', 'Stock', 'PG', 0.00),
+    ('Mastercard', 'Stock', 'MA', 0.00),
+    ('Broadcom', 'Stock', 'AVGO', 0.00),
+    ('Home Depot', 'Stock', 'HD', 0.00),
+    ('Chevron Corporation', 'Stock', 'CVX', 0.00),
+    ('Merck & Co.', 'Stock', 'MRK', 0.00),
+    ('AbbVie', 'Stock', 'ABBV', 0.00),
+    ('Costco Wholesale Corporation', 'Stock', 'COST', 0.00),
+    ('PepsiCo', 'Stock', 'PEP', 0.00),
+    ('Adobe', 'Stock', 'ADBE', 0.00);
