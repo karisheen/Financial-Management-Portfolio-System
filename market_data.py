@@ -52,7 +52,7 @@ stocks = ['AAPL', 'MSFT', 'AMZN', 'NVDA', 'GOOGL', 'TSLA', 'GOOG',
 # Loop over the list of stocks
 for stock in stocks:
     # Fetch market data
-    data_frame = yf.download(stock, start='2020-01-01', end='2020-12-31')
+    data_frame = yf.download(stock, start='2023-01-01', end='2023-11-20')
 
     # Insert market data into the database
     insert_market_data(stock, data_frame)
