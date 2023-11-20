@@ -1,6 +1,7 @@
 import yfinance as yf
 import mysql.connector
 from mysql.connector import Error
+import datetime
 
 # Replace the values below with your MySQL database connection info
 host_name = '127.0.0.1'
@@ -30,6 +31,17 @@ def insert_market_data(ticker_symbol, data_frame):
                 """
                 cursor.execute(insert_query, (instrument_id, row.Index, row.Open, row.Close, row.High, row.Low, row.Volume))
             
+            # Fetch the latest price
+            latest_price = data_frame.iloc[-1]['Close']
+            
+            # Update the CurrentMarketPrice in the FINANCIAL_INSTRUMENT table
+            update_query = """
+                UPDATE `FINANCIAL_INSTRUMENT`
+                SET `CurrentMarketPrice` = %s
+                WHERE `InstrumentID` = %s
+            """
+            cursor.execute(update_query, (latest_price, instrument_id))
+            
             connection.commit()
     except Error as e:
         print(f"Error: {e}")
@@ -51,8 +63,8 @@ stocks = ['AAPL', 'MSFT', 'AMZN', 'NVDA', 'GOOGL', 'TSLA', 'GOOG',
 
 # Loop over the list of stocks
 for stock in stocks:
-    # Fetch market data
-    data_frame = yf.download(stock, start='2023-01-01', end='2023-11-20')
+    # Fetch market data up to today
+    data_frame = yf.download(stock, start='2023-01-01', end=datetime.date.today().isoformat())
 
     # Insert market data into the database
     insert_market_data(stock, data_frame)
