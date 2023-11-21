@@ -84,3 +84,37 @@ INSERT INTO FINANCIAL_INSTRUMENT (Name, Type, TickerSymbol, CurrentMarketPrice) 
     ('Costco Wholesale Corporation', 'Stock', 'COST', 0.00),
     ('PepsiCo', 'Stock', 'PEP', 0.00),
     ('Adobe', 'Stock', 'ADBE', 0.00);
+
+INSERT INTO USER (UserID, Username, Password, Email, DateRegistered) VALUES 
+    (1, 'trader_john', '4bTg7hN12XyZ', 'trader_john@hedgefund.com', CURDATE()),
+    (2, 'analyst_sam', '8pKm6jQ23WvX', 'analyst_sam@hedgefund.com', CURDATE()),
+    (3, 'trader_emily', '1cRt5lP89SaE', 'trader_emily@hedgefund.com', CURDATE()),
+    (4, 'analyst_alex', '2dQb4nU06LrF', 'analyst_alex@hedgefund.com', CURDATE()),
+    (5, 'trader_max', '9zXs3vM71RfY', 'trader_max@hedgefund.com', CURDATE()),
+    (6, 'analyst_sophia', '0kWv5gP24JnB', 'analyst_sophia@hedgefund.com', CURDATE()),
+    (7, 'trader_jess', '6yHn2qT81LdC', 'trader_jess@hedgefund.com', CURDATE());
+
+
+INSERT INTO USER_INVESTMENT (UserID, InstrumentID, PurchaseDate, PurchasePrice, Quantity) VALUES
+    (1, 1, '2023-11-01', (SELECT OpenPrice FROM MARKET_DATA WHERE InstrumentID = 1 AND Date = '2023-11-01'), 2000)
+
+INSERT INTO USER_INVESTMENT (UserID, InstrumentID, PurchaseDate, PurchasePrice, Quantity) VALUES
+    (2, 9, '2023-11-02', (SELECT OpenPrice FROM MARKET_DATA WHERE InstrumentID = 9 AND Date = '2023-11-02'), 3000)
+
+INSERT INTO USER_INVESTMENT (UserID, InstrumentID, PurchaseDate, PurchasePrice, Quantity) VALUES
+    (3, 3, '2023-11-03', (SELECT OpenPrice FROM MARKET_DATA WHERE InstrumentID = 3 AND Date = '2023-11-03'), 1500)
+
+INSERT INTO USER_INVESTMENT (UserID, InstrumentID, PurchaseDate, PurchasePrice, Quantity) VALUES
+    (4, 4, '2023-11-06', (SELECT OpenPrice FROM MARKET_DATA WHERE InstrumentID = 4 AND Date = '2023-11-06'), 2500)
+
+INSERT INTO USER_INVESTMENT (UserID, InstrumentID, PurchaseDate, PurchasePrice, Quantity) VALUES
+    (5, 20, '2023-11-07', (SELECT OpenPrice FROM MARKET_DATA WHERE InstrumentID = 20 AND Date = '2023-11-07'), 3500)
+
+INSERT INTO USER_INVESTMENT (UserID, InstrumentID, PurchaseDate, PurchasePrice, Quantity) VALUES
+    (6, 2, '2023-11-08', (SELECT OpenPrice FROM MARKET_DATA WHERE InstrumentID = 2 AND Date = '2023-11-08'), 4000)
+
+INSERT INTO USER_INVESTMENT (UserID, InstrumentID, PurchaseDate, PurchasePrice, Quantity) VALUES
+    (7, 7, '2023-11-17', (SELECT OpenPrice FROM MARKET_DATA WHERE InstrumentID = 7 AND Date = '2023-11-17'), 1000)
+
+
+
