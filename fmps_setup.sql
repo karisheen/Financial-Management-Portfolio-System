@@ -116,5 +116,15 @@ INSERT INTO USER_INVESTMENT (UserID, InstrumentID, PurchaseDate, PurchasePrice, 
 INSERT INTO USER_INVESTMENT (UserID, InstrumentID, PurchaseDate, PurchasePrice, Quantity) VALUES
     (7, 7, '2023-11-17', (SELECT OpenPrice FROM MARKET_DATA WHERE InstrumentID = 7 AND Date = '2023-11-17'), 1000)
 
-
-
+INSERT INTO REPORT (UserID, DateGenerated, ReportType, Content)
+SELECT 
+    UI.UserID, 
+    CURDATE(), 
+    'Investment Summary', 
+    CONCAT('Invested in ', FI.Name, '. Bought ', UI.Quantity, ' shares at a total cost of ', UI.PurchasePrice * UI.Quantity)
+FROM 
+    USER_INVESTMENT UI
+INNER JOIN 
+    FINANCIAL_INSTRUMENT FI ON UI.InstrumentID = FI.InstrumentID
+WHERE 
+    UI.UserID IN (1, 2, 3, 4, 5, 6, 7);
