@@ -5,7 +5,7 @@ Financial Management Portfolio System (FMPS) is a database-driven application de
 
 ## Features
 - **User Management:** Register and maintain user profiles within the system.
-- **Financial Instrument Tracking:** Keep a record of various financial instruments such as stocks, bonds, etc.
+- **Financial Instrument Tracking:** Keep a record of various financial instruments such as stocks(future work will be to include more financial instruments).
 - **Market Data Integration:** Automatically fetch and store live market data.
 - **Investment Analysis:** Perform SQL-based queries for investment analysis.
 
